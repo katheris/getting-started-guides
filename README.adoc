@@ -12,11 +12,11 @@ projects: []
 :icons: font
 :source-highlighter: prettify
 :project_id: draft-gs-template
-This guide walks you through the process of creating a Spring application.
+This guide walks you through the process of creating a Spring application that connects to a Cloudant instance.
 
 == What you'll build
 
-You'll build a Spring application.
+You'll build a Spring application that stores and retrieves greetings from a Cloudant database.
 
 
 == What you'll need
@@ -36,6 +36,42 @@ include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/
 
 
 [[initial]]
+
+== Set up a Cloudant instance
+
+To complete this guide you will need an accessible Cloudant instance.
+
+To use an instance on IBM Cloud:
+1. [Create an account or log in to IBM Cloud](http://bluemix.net)
+1. [Create a Cloudant instance in your dashboard](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-nosql-db-instance-on-ibm-cloud)
+
+To create a local instance in a Docker container:
+1. Use the [Cloudant developer image on Dockerhub](https://hub.docker.com/r/ibmcom/cloudant-developer/)
+
+== Create an application properties file
+
+Create an application properties file with `cloudant.url`, `cloudant.username` and `cloudant.password` set to the url, username and password of your Cloudant instance and `cloudant.db` set to `greeting`.
+
+Note: if you are using Docker the `cloudant.username` and `cloudant.password` can be omitted and `cloudant.url` can be set to `http://localhost:8080`.
+
+`src/main/resources/application.propertes`
+[source]
+----
+include::complete/src/main/resources/application.properties
+----
+
+== Create a greeting model
+
+Create a class to represent a greeting object:
+
+`src/main/java/hello/Greeeting.java`
+[source,java]
+----
+include::complete/src/main/java/hello/Greeting.java[]
+----
+
+The `_id` and `_rev` fields are required by Cloudant. The model also includes a `content` field to store the contents of the greeting.
+
 == Create a resource controller
 
 Create a new controller for your Spring application:
@@ -46,7 +82,9 @@ Create a new controller for your Spring application:
 include::complete/src/main/java/hello/GreetingController.java[]
 ----
 
-NOTE: The above example does not specify `GET` vs. `PUT`, `POST`, and so forth, because `@RequestMapping` maps all HTTP operations by default. Use `@RequestMapping(method=GET)` to narrow this mapping.
+The `Database` object that is auto-wired into your controller allows you to connect to the database called `greeting` in your Cloudant instance.
+
+This example includes a `GET` endpoint to list all stored greetings, a `GET` endpoint for a specific greeting, a `POST` endpoint for adding greetings and a `DELETE` endpoint for deleting greetings.
 
 
 == Make the application executable
