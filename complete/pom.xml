@@ -20,9 +20,9 @@
         </dependency>
         <dependency>
             <groupId>com.cloudant</groupId>
-			<artifactId>cloudant-spring-boot-starter</artifactId>
-			<version>0.0.2</version>
-        <dependency>
+            <artifactId>cloudant-spring-boot-starter</artifactId>
+            <version>0.0.2</version>
+        </dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>

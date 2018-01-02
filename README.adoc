@@ -47,12 +47,13 @@ To use an instance on IBM Cloud:
 
 To create a local instance in a Docker container:
 1. Use the [Cloudant developer image on Dockerhub](https://hub.docker.com/r/ibmcom/cloudant-developer/)
+1. Follow the instructions on Dockerhub but supply a port different to `8080` since Spring uses `8080` by default.
 
 == Create an application properties file
 
 Create an application properties file with `cloudant.url`, `cloudant.username` and `cloudant.password` set to the url, username and password of your Cloudant instance and `cloudant.db` set to `greeting`.
 
-Note: if you are using Docker the `cloudant.username` and `cloudant.password` can be omitted and `cloudant.url` can be set to `http://localhost:8080`.
+Note: Refer to the IBM Cloud or Dockerhub documentation to determine the `cloudant.url`, `cloudant.username` and `cloudant.password` for your Cloudant instance.
 
 `src/main/resources/application.propertes`
 [source]
@@ -110,12 +111,21 @@ Logging output is displayed. The service should be up and running within a few s
 
 == Test the application
 
-Now that the application is running, you can test it.
+Now that the application is running, you can test it. Go to http://localhost:8080/greeting to see a list of greetings.
+
+To add a new greeting run following curl command:
+
+[subs="attributes", role="has-copy-button"]
+....
+curl -d '{"content":"Hello, this is a greeting!"}' -H "Content-Type: application/json" -X POST http://localhost:8080/greeting
+....
+
+Once you have a greeting in the database you can get the greeting at http://localhost:8080/greeting/{id}
 
 
 == Summary
 
-Congratulations! You've just developed a Spring application! 
+Congratulations! You've just developed a Spring application that uses Cloudant! 
 
 
 
