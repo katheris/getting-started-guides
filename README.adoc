@@ -11,7 +11,7 @@ projects: []
 :toc:
 :icons: font
 :source-highlighter: prettify
-:project_id: draft-gs-template
+:project_id: gs-cloudant
 This guide walks you through the process of creating a Spring application that connects to a Cloudant instance.
 
 == What you'll build
@@ -42,12 +42,12 @@ include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/
 To complete this guide you will need an accessible Cloudant instance.
 
 To use an instance on IBM Cloud:
-1. [Create an account or log in to IBM Cloud](http://bluemix.net)
-1. [Create a Cloudant instance in your dashboard](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-nosql-db-instance-on-ibm-cloud)
+. Create an account or log in to http://bluemix.net[IBM Cloud]
+. Create a https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-nosql-db-instance-on-ibm-cloud[Cloudant instance] in your dashboard
 
 To create a local instance in a Docker container:
-1. Use the [Cloudant developer image on Dockerhub](https://hub.docker.com/r/ibmcom/cloudant-developer/)
-1. Follow the instructions on Dockerhub but supply a port different to `8080` since Spring uses `8080` by default.
+. Use the Cloudant developer image on https://hub.docker.com/r/ibmcom/cloudant-developer/[Dockerhub]
+. Follow the instructions on Dockerhub but supply a port different to `8080` since Spring uses `8080` by default.
 
 == Create an application properties file
 
