@@ -42,10 +42,12 @@ include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/
 To complete this guide you will need an accessible Cloudant instance.
 
 To use an instance on IBM Cloud:
+
 . Create an account or log in to http://bluemix.net[IBM Cloud]
 . Create a https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-nosql-db-instance-on-ibm-cloud[Cloudant instance] in your dashboard
 
 To create a local instance in a Docker container:
+
 . Use the Cloudant developer image on https://hub.docker.com/r/ibmcom/cloudant-developer/[Dockerhub]
 . Follow the instructions on Dockerhub but supply a port different to `8080` since Spring uses `8080` by default.
 
