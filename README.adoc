@@ -59,7 +59,7 @@ Note: Refer to the IBM Cloud or Dockerhub documentation to determine the `clouda
 
 `src/main/resources/application.propertes`
 ----
-include::complete/src/main/resources/application.properties
+include::complete/src/main/resources/application.properties[]
 ----
 
 == Create a greeting model
