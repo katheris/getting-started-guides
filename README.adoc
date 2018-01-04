@@ -58,7 +58,6 @@ Create an application properties file with `cloudant.url`, `cloudant.username` a
 Note: Refer to the IBM Cloud or Dockerhub documentation to determine the `cloudant.url`, `cloudant.username` and `cloudant.password` for your Cloudant instance.
 
 `src/main/resources/application.propertes`
-[source]
 ----
 include::complete/src/main/resources/application.properties
 ----
